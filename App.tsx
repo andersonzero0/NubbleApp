@@ -1,14 +1,21 @@
 import React from 'react';
-import {
-  SafeAreaView,
-} from 'react-native';
-import { Text } from './src/components/Text';
+import {SafeAreaView, View} from 'react-native';
+import {Text} from './src/components/Text';
+import {Button} from './src/components/Button';
+import {ThemeProvider} from '@shopify/restyle';
+import { theme } from './src/theme';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaView>
-      <Text present='headingLarge'>AndersonViana</Text>
-    </SafeAreaView>
+    <ThemeProvider theme={theme}>
+      <SafeAreaView>
+        <View style={{paddingHorizontal: 20}}>
+          <Text present="headingLarge">AndersonViana</Text>
+
+          <Button title="Entrar" />
+        </View>
+      </SafeAreaView>
+    </ThemeProvider>
   );
 }
 export default App;
