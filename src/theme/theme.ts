@@ -34,7 +34,7 @@ export const theme = createTheme({
     successLight: palette.greenSucessLight,
 
     error: palette.redError,
-    errorLight: palette.redErrorLight
+    errorLight: palette.redErrorLight,
   },
   spacing: {
     s4: 4,
@@ -46,9 +46,16 @@ export const theme = createTheme({
     s32: 32,
     s40: 40,
     s48: 48,
-    s56: 56
+    s56: 56,
   },
-  borderRadii: {},
+  borderRadii: {
+    s8: 8,
+    s12: 12,
+    s16: 16
+  },
+  textVariants: {
+    defaults: {}
+  }
 });
 
 export type Theme = typeof theme;
