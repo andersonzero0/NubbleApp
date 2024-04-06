@@ -28,6 +28,7 @@ export type TouchableOpacityBoxProps = BackgroundColorProps<Theme> &
   LayoutProps<Theme> &
   BorderProps<Theme> &
   RNTouchableOpacityProps;
+  
 export const TouchableOpacityBox = createRestyleComponent<
   TouchableOpacityBoxProps,
   Theme
