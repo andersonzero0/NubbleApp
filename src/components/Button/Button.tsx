@@ -1,8 +1,8 @@
 import React from 'react';
-import {Text} from '../Text';
-import {TouchableOpacityBox, TouchableOpacityBoxProps} from '../Box';
+import {Text} from '../Text/Text';
+import {TouchableOpacityBox, TouchableOpacityBoxProps} from '../Box/Box';
 import { buttonPresets } from './ButtonPresets';
-import { ActivityIndicator } from '../ActivityIndicator';
+import { ActivityIndicator } from '../ActivityIndicator/ActivityIndicator';
 
 export type ButtonPreset = 'primary' | 'outline';
 

@@ -1,18 +1,20 @@
-import {SafeAreaView, View} from 'react-native';
-import {Text} from '../../../components/Text';
+import {Text} from '../../../components/Text/Text';
 import {TextInput} from '../../../components/TextInput/TextInput';
-import {Icon} from '../../../components/Icon';
-import {Button} from '../../../components/Button';
-import {Screen} from '../../../components/Screen';
+import {Button} from '../../../components/Button/Button';
+import {Screen} from '../../../components/Screen/Screen';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../routes/Routes';
-import { PasswordInput } from '../../../components/PasswordInput/PasswordInput';
+import {PasswordInput} from '../../../components/PasswordInput/PasswordInput';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
 
 export function LoginScreen({navigation}: ScreenProps) {
   function navigateToSignUpScreen() {
     navigation.navigate('SignUpScreen');
+  }
+
+  function navigateToForgotPasswordScreen() {
+    navigation.navigate('ForgotPasswordScreen');
   }
 
   return (
@@ -26,7 +28,6 @@ export function LoginScreen({navigation}: ScreenProps) {
       <TextInput
         label="E-mail"
         placeholder="Digite seu e-mail"
-        errorMessage="Mensagem de erro"
         boxProps={{mb: 's20'}}
       />
       <PasswordInput
@@ -34,7 +35,11 @@ export function LoginScreen({navigation}: ScreenProps) {
         boxProps={{mb: 's10'}}
         placeholder="Digite sua senha"
       />
-      <Text present="paragraphSmall" bold color="primary">
+      <Text
+        onPress={navigateToForgotPasswordScreen}
+        present="paragraphSmall"
+        bold
+        color="primary">
         Esqueci minha senha
       </Text>
       <Button title="Entrar" mt="s48" />

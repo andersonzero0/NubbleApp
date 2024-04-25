@@ -87,7 +87,7 @@ const iconRegistry = {
   home: HomeIcon,
   homeFill: HomeFillIcon,
   message: MessageIcon,
-  messageRoundIcon: MessageRoundIcon,
+  messageRound: MessageRoundIcon,
   newPost: NewPostIcon,
   profile: ProfileIcon,
   profileFill: ProfileFillIcon,
