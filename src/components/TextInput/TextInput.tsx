@@ -49,6 +49,7 @@ export function TextInput({
             placeholderTextColor={colors.gray2}
             {...TextInputProps}
             style={$textInputStyle}
+            autoCapitalize='none'
           />
           {RightComponent && (
             <Box justifyContent="center" pl="s16">
