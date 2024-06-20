@@ -52,11 +52,11 @@ export const theme = createTheme({
   borderRadii: {
     s8: 8,
     s12: 12,
-    s16: 16
+    s16: 16,
   },
   textVariants: {
-    defaults: {}
-  }
+    defaults: {},
+  },
 });
 
 export type Theme = typeof theme;

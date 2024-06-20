@@ -5,15 +5,17 @@ import {
   TextInputProps as RNTextInputProps,
   TextStyle,
 } from 'react-native';
-import {Box, BoxProps} from '../Box/Box';
+
+import {useAppTheme} from '@hooks';
+
+import {BoxProps, Box} from '../Box/Box';
 import {$fontFamily, $fontSizes, Text} from '../Text/Text';
-import {useAppTheme} from '../../hooks/useAppTheme';
 
 export interface TextInputProps extends RNTextInputProps {
   label: string;
   errorMessage?: string;
   RightComponent?: React.ReactElement;
-  boxProps?: BoxProps
+  boxProps?: BoxProps;
 }
 
 export function TextInput({
@@ -47,9 +49,9 @@ export function TextInput({
           <RNTextInput
             ref={inputRef}
             placeholderTextColor={colors.gray2}
+            autoCapitalize="none"
             {...TextInputProps}
             style={$textInputStyle}
-            autoCapitalize='none'
           />
           {RightComponent && (
             <Box justifyContent="center" pl="s16">

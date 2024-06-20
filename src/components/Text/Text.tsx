@@ -1,12 +1,12 @@
 import React from 'react';
-import {
-  TextStyle,
-} from 'react-native';
-import {createText} from '@shopify/restyle';
-import { Theme } from '../../theme/theme';
+import {TextStyle} from 'react-native';
 
-const SRText = createText<Theme>()
-type SRTextProps = React.ComponentProps<typeof SRText>
+import {createText} from '@shopify/restyle';
+
+import {Theme} from '@theme';
+
+const SRText = createText<Theme>();
+type SRTextProps = React.ComponentProps<typeof SRText>;
 
 interface TextProps extends SRTextProps {
   present?: TextVariants;
@@ -26,7 +26,10 @@ export function Text({
 }: TextProps) {
   const fontFamily = getFontFamily(present, bold, italic, semiBold);
   return (
-    <SRText color='backgroundContrast' style={[$fontSizes[present], {fontFamily}, style]} {...sRTextProps}>
+    <SRText
+      color="backgroundContrast"
+      style={[$fontSizes[present], {fontFamily}, style]}
+      {...sRTextProps}>
       {children}
     </SRText>
   );
@@ -39,9 +42,9 @@ function getFontFamily(
   semiBold: boolean,
 ) {
   if (
-    present == 'headingLarge' ||
-    present == 'headingMedium' ||
-    present == 'headingSmall'
+    present === 'headingLarge' ||
+    present === 'headingMedium' ||
+    present === 'headingSmall'
   ) {
     return italic ? $fontFamily.boldItalic : $fontFamily.bold;
   }
