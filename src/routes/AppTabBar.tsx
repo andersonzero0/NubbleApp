@@ -48,7 +48,7 @@ export function AppTabBar({state, descriptors, navigation}: BottomTabBarProps) {
             onLongPress={onLongPress}
             style={{flex: 1}}>
             <Icon name="home" />
-            <Text>AA</Text>
+            <Text>{tabItem.label}</Text>
           </TouchableOpacityBox>
         );
       })}
