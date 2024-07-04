@@ -14,8 +14,6 @@ import {useResetNavigationSuccess} from '@hooks';
 
 import {signUpSchema, SignUpSchema} from './signUpSchema';
 
-//type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
-
 export function SignUpScreen() {
   const {reset} = useResetNavigationSuccess();
   const {control, formState, handleSubmit} = useForm<SignUpSchema>({
