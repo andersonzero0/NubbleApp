@@ -39,6 +39,7 @@ export function AppTabBar({state, descriptors, navigation}: BottomTabBarProps) {
 
         return (
           <TouchableOpacityBox
+            key={index}
             alignItems="center"
             accessibilityRole="button"
             accessibilityState={isFocused ? {selected: true} : {}}
