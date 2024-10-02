@@ -6,7 +6,7 @@ import {AppStack} from './AppStack';
 import {AuthStack} from './AuthStack';
 
 export function Router() {
-  const authenticated = false;
+  const authenticated = true;
 
   return (
     <NavigationContainer>
