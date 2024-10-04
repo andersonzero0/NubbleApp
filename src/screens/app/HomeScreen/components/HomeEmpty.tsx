@@ -5,10 +5,10 @@ import {ActivityIndicator, Box, Button, Text} from '@components';
 interface Props {
   loading: boolean;
   error: unknown;
-  refetch: () => void;
+  refresh: () => void;
 }
 
-export function HomeEmpty({loading, error, refetch}: Props) {
+export function HomeEmpty({loading, error, refresh}: Props) {
   let component = (
     <Text bold present="paragraphMedium">
       Não há publicações no seu feed
@@ -25,7 +25,7 @@ export function HomeEmpty({loading, error, refetch}: Props) {
         <Text bold present="paragraphMedium" mb="s16">
           Não foi possível carregar o feed 😢
         </Text>
-        <Button onPress={refetch} preset="outline" title="recarregar">
+        <Button onPress={refresh} preset="outline" title="recarregar">
           Tentar novamente
         </Button>
       </>
