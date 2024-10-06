@@ -1,1 +1,2 @@
-yarn lint
+npm run lint
+npx tsc --noEmit

@@ -1,5 +1,6 @@
+import {TouchableOpacityBoxProps} from '@components';
+
 import {ThemeColors} from '../../theme';
-import {TouchableOpacityBoxProps} from '../Box';
 
 import {ButtonPreset} from './Button';
 
