@@ -3,17 +3,22 @@ import {FlatList, ListRenderItemInfo} from 'react-native';
 
 import {PostComment, usePostCommentList} from '@domain';
 
-import {Screen} from '@components';
+import {Box, Screen} from '@components';
 import {useAppSafeArea} from '@hooks';
 import {AppScreenProps} from '@routes';
 
-import {PostCommentBottom, PostCommentItem} from './components';
+import {
+  PostCommentBottom,
+  PostCommentItem,
+  PostCommentTextMessage,
+} from './components';
 
 export function PostCommentScreen({
   route,
 }: AppScreenProps<'PostCommentScreen'>) {
   const postId = route.params.postId;
-  const {list, fetchNextPage, hasNextPage} = usePostCommentList(postId);
+  const {list, fetchNextPage, hasNextPage, refresh} =
+    usePostCommentList(postId);
 
   const {bottom} = useAppSafeArea();
 
@@ -22,19 +27,22 @@ export function PostCommentScreen({
   }
 
   return (
-    <Screen title="Comentários" canGoBack>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={list}
-        renderItem={renderItem}
-        contentContainerStyle={{paddingBottom: bottom}}
-        ListFooterComponent={
-          <PostCommentBottom
-            hasNextPage={hasNextPage}
-            fetchNextPage={fetchNextPage}
-          />
-        }
-      />
+    <Screen flex={1} title="Comentários" canGoBack>
+      <Box flex={1} justifyContent="space-between">
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={list}
+          renderItem={renderItem}
+          contentContainerStyle={{paddingBottom: bottom}}
+          ListFooterComponent={
+            <PostCommentBottom
+              hasNextPage={hasNextPage}
+              fetchNextPage={fetchNextPage}
+            />
+          }
+        />
+        <PostCommentTextMessage postId={postId} onAddComment={refresh} />
+      </Box>
     </Screen>
   );
 }
