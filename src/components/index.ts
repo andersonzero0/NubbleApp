@@ -9,6 +9,6 @@ export * from './Screen/Screen';
 export * from './Text/Text';
 export * from './TextInput/TextInput';
 export * from './TextMessage/TextMessage';
-
 export * from './PostItem/PostItem';
 export * from './ProfileAvatar/ProfileAvatar';
+export * from './Toast/Toast';
