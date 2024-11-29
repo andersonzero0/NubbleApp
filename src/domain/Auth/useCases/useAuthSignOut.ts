@@ -16,10 +16,7 @@ export function useAuthSignOut(options?: MutationOptions<AuthCredentials>) {
         options.onError(error.message);
       }
     },
-    onSuccess: () => {
-      authService.removeToken();
-      removeCredentials();
-    },
+    onSuccess: removeCredentials,
   });
 
   return {
