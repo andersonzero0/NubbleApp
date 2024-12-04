@@ -7,6 +7,11 @@ module.exports = {
   plugins: ['import', '@tanstack/query'],
   overrides: [
     {
+      // Test files only
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      extends: ['plugin:testing-library/react'],
+    },
+    {
       files: ['*.ts', '*.tsx'],
       rules: {
         'import/order': [
