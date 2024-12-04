@@ -1,7 +1,9 @@
-import {ThemeProvider} from '@shopify/restyle';
 import React from 'react';
-import {theme} from '@theme';
+
+import {ThemeProvider} from '@shopify/restyle';
 import {render, RenderOptions} from '@testing-library/react-native';
+
+import {theme} from '@theme';
 
 const AllTheProviders = ({children}: {children: React.ReactNode}) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;

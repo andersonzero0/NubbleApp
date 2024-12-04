@@ -1,10 +1,11 @@
 import React from 'react';
+import {StyleSheet} from 'react-native';
 
 import {render, fireEvent, screen} from 'test-utils';
 
-import {Button, ButtonProps} from '../Button';
-import {StyleSheet} from 'react-native';
 import {theme} from '@theme';
+
+import {Button, ButtonProps} from '../Button';
 
 function renderComponent(props?: Partial<ButtonProps>) {
   render(<Button title="Button Title" {...props} />);
