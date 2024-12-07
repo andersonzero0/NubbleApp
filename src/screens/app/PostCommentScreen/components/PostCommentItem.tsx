@@ -9,7 +9,7 @@ import {Box, ProfileAvatar, Text} from '@components';
 interface Props {
   postId: number;
   postComment: PostComment;
-  userId: number;
+  userId: number | null;
   postAuthorId: number;
 }
 export function PostCommentItem({
@@ -24,7 +24,7 @@ export function PostCommentItem({
     onSuccess: () => {
       showToast({
         message: 'Comentário deletado',
-        position: 'bottom',
+        position: 'top',
       });
     },
   });
@@ -49,7 +49,10 @@ export function PostCommentItem({
   }
 
   return (
-    <Pressable disabled={!isAllowToDelete} onLongPress={confirmRemove}>
+    <Pressable
+      testID="post-comment-id"
+      disabled={!isAllowToDelete}
+      onLongPress={confirmRemove}>
       <Box flexDirection="row" alignItems="center" mb="s16">
         <ProfileAvatar imageURL={postComment.author.profileURL} />
         <Box ml="s12" flex={1}>

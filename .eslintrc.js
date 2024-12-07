@@ -1,4 +1,5 @@
 module.exports = {
+  ignorePatterns: ['coverage/'],
   root: true,
   extends: [
     '@react-native-community',
