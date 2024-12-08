@@ -9,6 +9,8 @@
     "start": "react-native start",
     "test": "jest --verbose",
     "coverage": "jest --verbose --coverage",
+    "art:3333": "adb reverse tcp:3333 tcp:3333",
+    "ap": "adb shell input text",
     "prepare": "husky"
   },
   "dependencies": {
