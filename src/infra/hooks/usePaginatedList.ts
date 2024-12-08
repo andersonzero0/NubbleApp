@@ -12,21 +12,24 @@ interface usePaginatedListResult<TData> {
   hasNextPage: boolean;
 }
 
+interface PaginatedListOption {
+  enabled?: boolean;
+  staleTime?: number;
+}
 export function usePaginatedList<Data>(
   queryKey: readonly unknown[],
   getList: (page: number) => Promise<Page<Data>>,
+  options?: PaginatedListOption,
 ): usePaginatedListResult<Data> {
   const [list, setList] = useState<Data[]>([]);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState<boolean>(false);
-  // const [page, setPage] = useState(1);
-  // const [hasNextPage, setHasNextPage] = useState(true);
 
   const query = useInfiniteQuery({
     queryKey,
     queryFn: ({pageParam = 1}) => getList(pageParam),
     getNextPageParam: ({meta}) =>
       meta.hasNextPage ? meta.currentPage + 1 : undefined,
+    enabled: options?.enabled,
+    staleTime: options?.staleTime,
   });
 
   useEffect(() => {
