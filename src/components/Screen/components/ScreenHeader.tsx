@@ -42,7 +42,8 @@ export function ScreenHeader({
           testID="screen-back-button"
           flexDirection="row"
           alignItems="center"
-          onPress={navigation.goBack}>
+          onPress={navigation.goBack}
+          hitSlop={10}>
           <Icon name="arrowLeft" color="primary" />
           {showBackLabel && (
             <Text present="paragraphMedium" semiBold ml="s8">
