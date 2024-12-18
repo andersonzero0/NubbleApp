@@ -28,6 +28,7 @@ export function SearchScreen({}: AppScreenProps<'SearchScreen'>) {
         <TextInput
           value={search}
           onChangeText={setSearch}
+          placeholder="Digite sua busca"
           LeftComponent={<Icon name="search" color="gray3" />}
         />
       }>
