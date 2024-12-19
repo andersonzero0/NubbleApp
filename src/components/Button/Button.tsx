@@ -43,7 +43,7 @@ export function Button({
         <ActivityIndicator color={buttonPreset.content.color} />
       ) : (
         <Text
-          present="paragraphMedium"
+          preset="paragraphMedium"
           bold
           color={buttonPreset.content.color}
           {...buttonPreset.content.textProps}>

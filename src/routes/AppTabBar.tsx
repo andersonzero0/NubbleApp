@@ -84,7 +84,7 @@ const $boxWrapper: BoxProps = {
 const $label: TextProps = {
   semiBold: true,
   mt: 's4',
-  present: 'paragraphCaption',
+  preset: 'paragraphCaption',
 };
 
 const $itemWrapper: TouchableOpacityBoxProps = {

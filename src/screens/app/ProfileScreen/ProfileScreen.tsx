@@ -28,7 +28,7 @@ export function ProfileScreen({route}: AppScreenProps<'ProfileScreen'>) {
               size={64}
               borderRadius={24}
             />
-            <Text present="headingMedium" bold>
+            <Text preset="headingMedium" bold>
               {user.fullName}
             </Text>
             <Text>@{user.username}</Text>

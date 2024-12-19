@@ -71,7 +71,7 @@ function Item({onPress, icon, text, marked}: ItemProps) {
         name={marked ? icon.marked : icon.default}
       />
       {text > 0 && (
-        <Text ml="s4" bold present="paragraphSmall">
+        <Text ml="s4" bold preset="paragraphSmall">
           {text}
         </Text>
       )}

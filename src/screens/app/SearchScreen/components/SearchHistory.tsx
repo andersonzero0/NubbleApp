@@ -30,7 +30,7 @@ export function SearchHistory() {
     <Box>
       <FlatList
         ListHeaderComponent={
-          <Text mb="s16" present="headingMedium">
+          <Text mb="s16" preset="headingMedium">
             Buscas recentes
           </Text>
         }

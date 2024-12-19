@@ -18,7 +18,7 @@ export function MyProfileScreen({
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center">
-        {name && <Text present="headingMedium">{name}</Text>}
+        {name && <Text preset="headingMedium">{name}</Text>}
         <Icon
           name="settings"
           onPress={() => navigation.navigate('SettingsScreen')}

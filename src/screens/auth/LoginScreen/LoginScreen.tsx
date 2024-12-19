@@ -46,10 +46,10 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
 
   return (
     <Screen scrollable>
-      <Text present="headingLarge" mb="s8">
+      <Text preset="headingLarge" mb="s8">
         Olá!
       </Text>
-      <Text present="paragraphLarge" semiBold mb="s40">
+      <Text preset="paragraphLarge" semiBold mb="s40">
         Digite seu e-mail e senha para entrar
       </Text>
 
@@ -71,7 +71,7 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
 
       <Text
         onPress={navigateToForgotPasswordScreen}
-        present="paragraphSmall"
+        preset="paragraphSmall"
         bold
         color="primary">
         Esqueci minha senha

@@ -1,21 +1,39 @@
 import React, {useState} from 'react';
 import {Dimensions, Image} from 'react-native';
 
+import {usePostCreate} from '@domain';
+import {useToastService} from '@services';
+
 import {Button, Screen, Text, TextInput} from '@components';
 import {AppScreenProps} from '@routes';
 
 const IMAGE_WIDTH = Dimensions.get('screen').width / 2;
 
 export function PublishPostScreen({
+  navigation,
   route,
 }: AppScreenProps<'PublishPostScreen'>) {
+  const imageUri = route.params.imageUri;
   const [description, setDescription] = useState('');
+
+  const {showToast} = useToastService();
+
+  const {createPost, isLoading} = usePostCreate({
+    onSuccess: () => {
+      navigation.navigate('AppTabNavigator', {screen: 'HomeScreen'});
+      showToast({message: 'Foto publicada!', type: 'success'});
+    },
+  });
+
+  function publishPost() {
+    createPost({description, imageUri});
+  }
 
   return (
     <Screen scrollable canGoBack title="Novo Post">
       <Image
         source={{
-          uri: route.params.imageUri,
+          uri: imageUri,
         }}
         // eslint-disable-next-line react-native/no-inline-styles
         style={{
@@ -26,7 +44,7 @@ export function PublishPostScreen({
         }}
       />
 
-      <Text present="headingSmall" mt="s32" mb="s10">
+      <Text preset="headingSmall" mt="s32" mb="s10">
         Escreva uma legenda
       </Text>
 
@@ -37,7 +55,13 @@ export function PublishPostScreen({
         containerProps={{borderWidth: 0}}
       />
 
-      <Button mt="s56" title="Publicar post" />
+      <Button
+        mt="s56"
+        title="Publicar post"
+        onPress={publishPost}
+        loading={isLoading}
+        disabled={description.length < 1}
+      />
     </Screen>
   );
 }

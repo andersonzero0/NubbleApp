@@ -14,10 +14,10 @@ export function SuccessScreen({
   return (
     <Screen>
       <Icon {...route.params.icon} />
-      <Text present="headingLarge" mt="s24">
+      <Text preset="headingLarge" mt="s24">
         {route.params.title}
       </Text>
-      <Text present="paragraphLarge" mt="s16">
+      <Text preset="paragraphLarge" mt="s16">
         {route.params.description}
       </Text>
       <Button mt="s40" onPress={goBackToBegin} title="Voltar ao início" />

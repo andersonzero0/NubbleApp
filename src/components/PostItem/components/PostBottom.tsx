@@ -21,17 +21,17 @@ export function PostBottom({author, text, commentCount, id}: Props) {
 
   return (
     <Box mt="s16">
-      <Text present="paragraphMedium" bold>
+      <Text preset="paragraphMedium" bold>
         {author.userName}
       </Text>
-      <Text present="paragraphMedium" color="gray1">
+      <Text preset="paragraphMedium" color="gray1">
         {text}
       </Text>
       {commentText && (
         <Text
           onPress={navigateToPostCommentScreen}
           mt="s8"
-          present="paragraphSmall"
+          preset="paragraphSmall"
           bold
           color="primary">
           {commentText}

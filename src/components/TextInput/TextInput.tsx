@@ -47,7 +47,7 @@ export function TextInput({
     <Box flexShrink={1} flexGrow={1} {...boxProps}>
       <Pressable onPress={focusInput}>
         {label && (
-          <Text present="paragraphMedium" mb="s4">
+          <Text preset="paragraphMedium" mb="s4">
             {label}
           </Text>
         )}
@@ -71,7 +71,7 @@ export function TextInput({
           )}
         </Box>
         {errorMessage && (
-          <Text present="paragraphSmall" bold color="error">
+          <Text preset="paragraphSmall" bold color="error">
             {errorMessage}
           </Text>
         )}

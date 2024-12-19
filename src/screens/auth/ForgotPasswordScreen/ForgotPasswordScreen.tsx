@@ -47,10 +47,10 @@ export function ForgotPasswordScreen() {
 
   return (
     <Screen canGoBack>
-      <Text present="headingLarge" mb="s16">
+      <Text preset="headingLarge" mb="s16">
         Esqueci minha senha
       </Text>
-      <Text present="paragraphLarge" mb="s32">
+      <Text preset="paragraphLarge" mb="s32">
         Digite seu e-mail e enviaremos as instruções para redefinição de senha
       </Text>
 

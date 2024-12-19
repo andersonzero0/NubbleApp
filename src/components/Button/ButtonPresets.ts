@@ -55,7 +55,7 @@ export const buttonPresets: Record<
       content: {
         color: 'grayBlack',
         textProps: {
-          present: 'paragraphSmall',
+          preset: 'paragraphSmall',
           bold: false,
         },
       },

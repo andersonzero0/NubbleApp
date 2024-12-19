@@ -9,7 +9,7 @@ const SRText = createText<Theme>();
 type SRTextProps = React.ComponentProps<typeof SRText>;
 
 export interface TextProps extends SRTextProps {
-  present?: TextVariants;
+  preset?: TextVariants;
   bold?: boolean;
   italic?: boolean;
   semiBold?: boolean;
@@ -17,18 +17,18 @@ export interface TextProps extends SRTextProps {
 
 export function Text({
   children,
-  present = 'paragraphMedium',
+  preset = 'paragraphMedium',
   bold = false,
   italic = false,
   semiBold = false,
   style,
   ...sRTextProps
 }: TextProps) {
-  const fontFamily = getFontFamily(present, bold, italic, semiBold);
+  const fontFamily = getFontFamily(preset, bold, italic, semiBold);
   return (
     <SRText
       color="backgroundContrast"
-      style={[$fontSizes[present], {fontFamily}, style]}
+      style={[$fontSizes[preset], {fontFamily}, style]}
       {...sRTextProps}>
       {children}
     </SRText>

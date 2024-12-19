@@ -1,6 +1,7 @@
 import React from 'react';
 import {ImageBackground, StyleSheet} from 'react-native';
 
+import {images} from '@assets';
 import {useNavigation} from '@react-navigation/native';
 
 import {Box, BoxProps, Button, Icon, Text} from '@components';
@@ -18,10 +19,14 @@ export function Header({imageUri, imageWidth}: Props) {
     }
   }
 
+  function navigateToCamera() {
+    navigation.navigate('CameraScreen');
+  }
+
   return (
     <Box>
       <ImageBackground
-        source={{uri: imageUri}}
+        source={imageUri ? {uri: imageUri} : images.imagePlaceholder}
         style={[
           {
             width: imageWidth,
@@ -39,8 +44,8 @@ export function Header({imageUri, imageWidth}: Props) {
         )}
       </ImageBackground>
       <Box {...$optionsStyle}>
-        <Text present="headingSmall">Sua galeria</Text>
-        <Icon name="camera" />
+        <Text preset="headingSmall">Sua galeria</Text>
+        <Icon name="camera" onPress={navigateToCamera} />
       </Box>
     </Box>
   );
