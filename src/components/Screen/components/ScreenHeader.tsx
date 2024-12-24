@@ -43,6 +43,7 @@ export function ScreenHeader({
           flexDirection="row"
           alignItems="center"
           onPress={navigation.goBack}
+          mr={showBackLabel ? 's10' : undefined}
           hitSlop={10}>
           <Icon name="arrowLeft" color="primary" />
           {showBackLabel && (

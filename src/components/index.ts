@@ -14,3 +14,5 @@ export * from './ProfileAvatar/ProfileAvatar';
 export * from './Toast/Toast';
 export * from './ProfileUser/ProfileUser';
 export * from './PermissionManager/PermissionManager';
+export * from './Separator/Separator';
+export * from './RadioButton';
