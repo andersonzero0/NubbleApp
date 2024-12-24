@@ -50,6 +50,7 @@ export function NewPostScreen() {
           renderItem={renderItem}
           onEndReached={fetchNextPage}
           onEndReachedThreshold={0.1}
+          keyExtractor={item => item}
           ListHeaderComponent={
             <Header imageWidth={SCREEN_WIDTH} imageUri={selectedImage} />
           }

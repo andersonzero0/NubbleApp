@@ -44,6 +44,7 @@ export function PostCommentScreen({
           data={list}
           renderItem={renderItem}
           contentContainerStyle={{paddingBottom: bottom}}
+          keyExtractor={item => item.id.toString()}
           ListFooterComponent={
             <PostCommentBottom
               hasNextPage={hasNextPage}

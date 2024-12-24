@@ -1,24 +1,50 @@
 import React from 'react';
 
-import {RadioButtonItemProps, RadioButtonSelector, Screen} from '@components';
+import {useSettingsService, useThemePreference} from '@services';
+
+import {RadioButtonSelector, Screen} from '@components';
 import {AppScreenProps} from '@routes';
 
-const items: RadioButtonItemProps[] = [
-  {label: 'Ativado', isSelected: false, onPress: () => {}},
-  {label: 'Desativado', isSelected: true, onPress: () => {}},
+type ThemePreference = 'light' | 'dark' | 'system';
+
+type Option = {
+  label: string;
+  description?: string;
+  themePreference: ThemePreference;
+};
+
+const items: Option[] = [
+  {label: 'Ativado', themePreference: 'dark'},
+  {label: 'Desativado', themePreference: 'light'},
   {
     label: 'Padrão do sistema',
     description:
       'A aparência será a mesma que você configurou no seu dispositivo',
-    isSelected: false,
-    onPress: () => {},
+    themePreference: 'system',
   },
 ];
 
 export function DarkModeScreen({}: AppScreenProps<'DarkModeScreen'>) {
+  const themePreference = useThemePreference();
+  const {setThemePreference} = useSettingsService();
+
+  const selectedItem = items.find(
+    item => item.themePreference === themePreference,
+  );
+
+  function setSelectedItem(item: Option) {
+    setThemePreference(item.themePreference);
+  }
   return (
     <Screen canGoBack title="Modo escuro">
-      <RadioButtonSelector items={items} />
+      <RadioButtonSelector
+        items={items}
+        selectedItem={selectedItem}
+        onSelect={setSelectedItem}
+        labelKey="label"
+        descriptionKey="description"
+        valueKey="themePreference"
+      />
     </Screen>
   );
 }

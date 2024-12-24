@@ -31,6 +31,7 @@ export function SettingsScreen({navigation}: AppScreenProps<'SettingsScreen'>) {
         bounces={false}
         renderItem={renderItem}
         ItemSeparatorComponent={Separator}
+        keyExtractor={item => item.label}
         ListFooterComponent={
           <Button
             mt="s48"

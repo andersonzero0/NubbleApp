@@ -36,6 +36,7 @@ export function SearchHistory() {
         }
         data={userList}
         renderItem={renderItem}
+        keyExtractor={item => item.id.toString()}
       />
     </Box>
   );
