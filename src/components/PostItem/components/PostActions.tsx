@@ -1,6 +1,8 @@
 import React from 'react';
 
-import {Post} from '@domain';
+import {Post, useReactToPost} from '@domain';
+import {QueryKeys} from '@infra';
+import {useNavigation} from '@react-navigation/native';
 
 import {Box, Icon, IconProps, Text, TouchableOpacityBox} from '@components';
 
@@ -10,22 +12,32 @@ type Props = {
 };
 
 export function PostActions({post, hideCommentAction}: Props) {
-  function likePost() {}
+  const navigation = useNavigation();
 
-  function navigateToComments() {}
+  const likeReaction = useReactToPost({post, postReactionType: 'like'});
+  const favoriteReaction = useReactToPost({
+    post,
+    postReactionType: 'favorite',
+    queryKeys: [QueryKeys.FavoriteList],
+  });
 
-  function favoritePost() {}
+  function navigateToComments() {
+    navigation.navigate('PostCommentScreen', {
+      postId: post.id,
+      postAuthorId: post.author.id,
+    });
+  }
 
   return (
     <Box flexDirection="row" mt="s16" gap="s24">
       <Item
-        onPress={likePost}
+        onPress={likeReaction.reactToPost}
         icon={{
           default: 'heart',
           marked: 'heartFill',
         }}
-        text={post.reactionCount}
-        marked={true}
+        text={likeReaction.reactionCount}
+        marked={likeReaction.hasReacted}
       />
       <Item
         disabled={hideCommentAction}
@@ -38,13 +50,13 @@ export function PostActions({post, hideCommentAction}: Props) {
         marked={false}
       />
       <Item
-        onPress={favoritePost}
+        onPress={favoriteReaction.reactToPost}
         icon={{
           default: 'bookmark',
           marked: 'bookmarkFill',
         }}
-        text={post.favoriteCount}
-        marked={false}
+        text={favoriteReaction.reactionCount}
+        marked={favoriteReaction.hasReacted}
       />
     </Box>
   );
@@ -67,6 +79,7 @@ function Item({onPress, icon, text, marked, disabled}: ItemProps) {
       disabled={disabled}
       flexDirection="row"
       alignItems="center"
+      hitSlop={10}
       onPress={onPress}>
       <Icon
         color={marked ? 'market' : undefined}
