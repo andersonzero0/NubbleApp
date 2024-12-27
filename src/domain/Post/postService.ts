@@ -17,11 +17,17 @@ async function createPost(
   imageCover: ImageForUpload,
 ): Promise<Post> {
   const postAPIData = await postApi.createPost(text, imageCover);
-
+  postAPIData.reactions = [];
   return postAdapter.toPost(postAPIData);
+}
+
+async function getById(postId: number): Promise<Post> {
+  const postAPI = await postApi.getById(postId.toString());
+  return postAdapter.toPost(postAPI);
 }
 
 export const postService = {
   getList,
   createPost,
+  getById,
 };

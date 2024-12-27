@@ -21,7 +21,7 @@
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "@shopify/restyle": "^2.4.2",
-    "@tanstack/react-query": "4.32.6",
+    "@tanstack/react-query": "^4.32.6",
     "axios": "^1.7.7",
     "date-fns": "^4.1.0",
     "expo": "^50.0.0",

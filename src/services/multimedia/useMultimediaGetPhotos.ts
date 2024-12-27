@@ -35,7 +35,7 @@ export function useMultimediaGetPhotos(
         onInitialLoad(newList[0]);
       }
     }
-  }, [query.data, onInitialLoad]);
+  }, [onInitialLoad, query.data]);
 
   return {
     photoList: list,
